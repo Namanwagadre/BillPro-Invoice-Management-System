@@ -1,0 +1,58 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<script>
+    setTimeout(function() {
+        let messages = document.querySelectorAll('.alert');
+
+        messages.forEach(function(message) {
+            message.classList.add('hide-message');
+
+            setTimeout(function() {
+                message.remove();
+            }, 500);
+        });
+
+    }, 3000);
+</script>
+<body>
+    <nav class="navbar">
+       <div class="logo">Bill<span>Pro</span></div>
+       
+        <div class="nav-links">
+             <a href="/home/">Home</a>
+             <a href="/invoices/">Invoices</a>
+             <a href="/cust_name/">Customers</a>
+
+             {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Logout</a>
+             {% else %}
+                <a href="{% url 'login' %}">Login</a>
+             {% endif %}      
+
+        </div>
+    </nav>
+    
+    <main class="container">
+        {% if messages %}
+          {% for message in messages %}
+             <div class="alert {{message.tags }}">
+                {{ message }}
+             </div>
+          {% endfor %}
+        {% endif %}
+      {% block content %}
+      {% endblock %}
+    </main>  
+
+    <footer>
+        <p>© 2026 BillPro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

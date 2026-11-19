@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add-invoice-page">
+
+    <div class="form-card">
+
+        <h1>Add New Invoice</h1>
+        <p class="form-subtitle">Enter the details to create a new invoice.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="save-btn">
+                Save Invoice
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

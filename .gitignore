@@ -1,0 +1,26 @@
+# Virtual Environment
+my_env/
+env/
+venv/
+mysite/settings.py
+
+# Python
+__pycache__/
+*.pyc
+
+# Django
+*.log
+
+# Database
+db.sqlite3
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

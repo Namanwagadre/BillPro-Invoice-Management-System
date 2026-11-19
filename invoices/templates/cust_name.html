@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+{% block content %}
+<h3>Customers</h3>
+<div class="invoice-container">
+    {% for invoice in all_invoices %}
+    <div class="invoice-card">
+        
+        <h3>Invoice #{{invoice.invoice_number}} </h3>
+        <p><strong>Customer:</strong>{{invoice.customer_name}}</p>  
+        <h2> ₹{{ invoice.amount}}</h2>
+        
+    
+        {% if invoice.amount > 7000 %}
+            <span class="status large">Large invoice</span>
+        {% else %}
+            <span class="status regular">Regular invoice</span>
+        {% endif %} 
+    
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}    

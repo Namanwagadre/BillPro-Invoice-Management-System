@@ -1,0 +1,19 @@
+step-1
+create a box
+python -m venv my_env
+
+step-2
+inside a box
+.\my_env\Scripts\activate
+
+step-3
+install django
+//pip install django
+
+step-4
+verification
+//python -m django --version
+
+-----------------------------
+startproject
+//django-admin startproject mysite .            
